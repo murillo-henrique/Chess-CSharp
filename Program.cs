@@ -15,23 +15,36 @@ class Program
 
             while (!partida.Terminada)
             {
-                Console.Clear();
-                Tela.ImprimirTabuleiro(partida.tabuleiro);
 
-                Console.WriteLine();
-                Console.Write("Origem: ");
-                Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                try
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tabuleiro);
+                    System.Console.WriteLine();
+                    System.Console.WriteLine($"Turno: {partida.Turno}\nAguardando jogada: {partida.JogadorAtual}");
 
-                bool[,] posicoesPossiveis = partida.tabuleiro.Peca(origem).movimentosPossiveis();
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    partida.ValidarPosicaoDeOrigem(origem);
 
-                Console.Clear();
-                Tela.ImprimirTabuleiro(partida.tabuleiro, posicoesPossiveis);
+                    bool[,] posicoesPossiveis = partida.tabuleiro.Peca(origem).MovimentosPossiveis();
 
-                Console.WriteLine();
-                Console.Write("Destino: ");
-                Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tabuleiro, posicoesPossiveis);
 
-                partida.ExecutarMovimento(origem, destino);
+                    Console.WriteLine();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                    partida.ValidarPosicaoDeDestino(origem, destino);
+
+                    partida.RealizarJogada(origem, destino);
+                }
+                catch (TabuleiroException exception)
+                {
+                    System.Console.WriteLine(exception.Message);
+                    Console.ReadLine();
+                }
             }
         }
         catch (TabuleiroException exception)

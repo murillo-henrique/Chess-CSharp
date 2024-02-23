@@ -12,7 +12,7 @@ class Rei : Peca
 
         return peca == null || peca.Cor != this.Cor;
     }
-    public override bool[,] movimentosPossiveis()
+    public override bool[,] MovimentosPossiveis()
     {
         bool[,] mat = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
 
