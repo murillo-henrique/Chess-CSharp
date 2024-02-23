@@ -7,8 +7,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
-
         try
         {
             PartidaDeXadrez partida = new PartidaDeXadrez();
@@ -19,9 +17,7 @@ class Program
                 try
                 {
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.tabuleiro);
-                    System.Console.WriteLine();
-                    System.Console.WriteLine($"Turno: {partida.Turno}\nAguardando jogada: {partida.JogadorAtual}");
+                    Tela.ImprimirPartida(partida);
 
                     Console.WriteLine();
                     Console.Write("Origem: ");
