@@ -7,7 +7,7 @@ class Tela
 {
     public static void ImprimirPartida(PartidaDeXadrez partida)
     {
-        ImprimirTabuleiro(partida.tabuleiro);
+        ImprimirTabuleiro(partida.Tabuleiro);
         System.Console.WriteLine();
         ImprimirPecasCapturadas(partida);
         System.Console.WriteLine();
