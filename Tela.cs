@@ -12,10 +12,20 @@ class Tela
         ImprimirPecasCapturadas(partida);
         System.Console.WriteLine();
         System.Console.WriteLine($"Turno: {partida.Turno}\nAguardando jogada: {partida.JogadorAtual}");
-        if (partida.Xeque)
+
+        if (!partida.Terminada)
         {
-            System.Console.WriteLine("XEQUE!");
+            if (partida.Xeque)
+            {
+                System.Console.WriteLine("XEQUE!");
+            }
         }
+        else
+        {
+            System.Console.WriteLine("XEQUEMATE!");
+            System.Console.WriteLine($"Vencedor: {partida.JogadorAtual}");
+        }
+
     }
     public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
     {
