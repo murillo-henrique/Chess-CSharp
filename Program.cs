@@ -42,7 +42,7 @@ class Program
                     Console.ReadLine();
                 }
             }
-            
+
             Console.Clear();
             Tela.ImprimirPartida(partida);
         }
@@ -51,5 +51,6 @@ class Program
             System.Console.WriteLine(exception.Message);
         }
 
+        Console.ReadLine();
     }
 }

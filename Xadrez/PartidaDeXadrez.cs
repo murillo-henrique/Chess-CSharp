@@ -175,7 +175,6 @@ class PartidaDeXadrez
         }
         else
         {
-            ExecutarMovimento(origem, destino);
             Turno++;
             MudarJogador();
         }
@@ -277,10 +276,10 @@ class PartidaDeXadrez
     public bool EstaEmXeque(Cor cor)
     {
         Peca rei = Rei(cor);
-        if (rei == null)
-        {
-            throw new TabuleiroException($"Não tem rei da cor {cor} no Tabuleiro!");
-        }
+        // if (rei == null)
+        // {
+        //     throw new TabuleiroException($"Não tem rei da cor {cor} no Tabuleiro!");
+        // }
 
         foreach (Peca peca in PecasEmJogo(Adversaria(cor)))
         {
